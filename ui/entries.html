@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>MyDiary | Sign In</title>
+</head>
+
+<body>
+    <header>
+        <div id="brand">
+            <h1>MyDiary</h1>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+            </ul>
+            <a id="account-btn" class="dropdown">
+                <img src="./img/icons/account.png" alt="Account">
+                <div class="dropdown-content">
+                    <button class="dropdown-btn" id="profile-btn">Profile</button>
+                    <button class="dropdown-btn" onclick="logOut()">Logout</button>
+                </div>
+            </a>
+        </nav>
+    </header>
+    <div class="thoughts-wrap">
+        <div class="thoughts">
+            <ul id="t-wrap"></ul>
+        </div>
+        <aside class="options">
+            <div class="buttons"></div>
+            <button id="new-entry" class="btn">
+                <img src="./img/icons/add-icon.png" alt="Add Entry">
+            </button>
+            <button id="edit-entry" class="btn" onclick="">
+                <img src="./img/icons/edit-icon.png" alt="Edit Entry">
+            </button>
+            <button id="delete-entry" class="btn" onclick="">
+                <img src="./img/icons/delete-icon.png" alt="Delete Entry">
+            </button>
+        </aside>
+    </div>
+
+    <div id="enter-thought" class="popUp">
+        <div class="enter-content">
+            <span class="close">&times;</span>
+            <div class="content-wrap">
+                <form action="">
+                    <div>
+                        <input type="text" id="thought-heading" placeholder="Heading of New Entry" />
+                    </div>
+                </form>
+                <textarea name="thoughts" id="thoughts" placeholder="Write your thoughts here..."></textarea>
+            </div>
+            <button class="thoughts-btn save-btn" type="submit" onclick="saveEntry()">Save</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>MyDiary App, Copyright &copy; 2019</p>
+    </footer>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
