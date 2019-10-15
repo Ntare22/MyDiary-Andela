@@ -1,2 +1,2 @@
 # MyDiary-Andela
-Welcome back to your account. Put down their thoughts and feelings.
+MyDiary is an online journal where users can pen down their thoughts and feelings..
