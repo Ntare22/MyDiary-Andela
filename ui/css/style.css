@@ -1,0 +1,692 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 52, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+/* Global */
+.container {
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 130px;
+    border-radius: 10px;
+    margin-bottom: 130px;
+}
+
+::placeholder {
+    font-size: 1.5em;
+}
+
+/* Header */
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #020024;
+    color: #ffffff;
+    min-height: 5px;
+    z-index: 1;
+}
+
+#brand {
+    margin-left: 150px;
+}
+
+#navbar {
+    margin-right: 200px;
+    display: flex;
+}
+
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+
+header li {
+    display: inline;
+    padding: 0 10px 0 10px;
+}
+
+header #brand {
+    float: left;
+    padding: 10px;
+}
+
+header #brand h1 {
+    margin: 0;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block !important;
+}
+
+.dropdown-btn {
+    display: block;
+    width: 90%;
+    margin: auto;
+    border: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #020024;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    right: 0;
+}
+
+.dropdown-btn:hover {
+    background-color: #ffffffff;
+    color: #020024;
+}
+
+
+
+/*Sign Up & Sign In*/
+.art-work {
+    float: left;
+    width: 50%;
+    min-height: 700px;
+    background: url("../img/happy.jpg") no-repeat 0 -500px;
+    opacity: 0.1;
+}
+
+
+.home-text {
+    position: absolute;
+    padding-top: 350px;
+}
+
+.headline,
+.subtext {
+    color: #ffffff;
+    width: 60%;
+    padding-left: 20px;
+}
+
+.headline {
+    font-size: 3vw;
+}
+
+.subtext {
+    font-size: 1vw;
+    font-style: initial;
+}
+
+aside {
+    background: #D2DAE6;
+    float: right;
+    width: 50%;
+    min-height: 700px;
+    text-align: center;
+}
+
+.signup {
+    margin-top: 20%;
+}
+
+.signup-info input[type=text],
+.signin-info input {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+.signup-info button,
+.signin-info button,
+.thoughts-btn,
+.settings button {
+    padding: 12px 20px;
+    margin: 8px 0px;
+    width: 40%;
+    background: #020024;
+    color: #ffffff;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.thoughts-btn {
+    margin-left: 60%;
+}
+
+aside h1 {
+    font-size: 50px;
+    color: #020024;
+}
+
+aside p a {
+    color: #020024;
+    text-decoration: none;
+}
+
+aside p a:hover {
+    text-decoration: underline;
+}
+
+.signin {
+    margin-top: 40%;
+}
+
+/* Thoughts page */
+
+.thoughts-wrap {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
+}
+
+
+.thoughts {
+    background: #D2DAE6;
+    width: 94%;
+    float: left;
+    /* text-align: center; */
+    opacity: 0.6;
+    height: 80vh;
+    overflow: scroll;
+}
+
+#twrap {
+    overflow: scroll;
+}
+
+.item {
+    background: #020024;
+    margin-bottom: 5px;
+    margin-right: 5%;
+    margin-left: -1%;
+    border-radius: 5px;
+    padding-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    list-style-type: none;
+    font-size: 150%;
+    opacity: 1;
+    color: #ffffff;
+}
+
+.item:hover {
+    background: #ffffff;
+    color: #020024;
+}
+
+.item div,
+.checkbox {
+    float: right;
+    margin-right: 3%;
+    margin-top: 1%;
+    position: relative;
+}
+
+
+
+.options {
+    width: 6%;
+    background: #020024;
+    height: 80vh;
+}
+
+.buttons {
+    margin-top: 50px;
+}
+
+.options .btn {
+    display: block;
+    margin: auto;
+    width: 80%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    margin-top: 40%;
+    border: none;
+    background-color: #020024;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+.btn img {
+    width: 20px;
+    height: 20px;
+}
+
+#account-btn {
+    background-color: #020024;
+    margin-left: 20px;
+    margin-top: 16px;
+}
+
+#account-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Thoughts Pop up */
+
+.popUp {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.enter-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#thought-heading {
+    width: 80%;
+    border-radius: 7px;
+    height: 3vh;
+    border-color: #020024;
+}
+
+#thoughts {
+    width: 100%;
+    height: 50vh;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #020024;
+    resize: none;
+    margin-top: 10px;
+    background-color: #f8f8f8;
+}
+
+/* Account Settings Page */
+#account {
+    width: 50%;
+    float: left;
+    min-height: 700px;
+    z-index: -1;
+    background: #020024;
+}
+
+#account img {
+    width: 40%;
+    height: 40%;
+    padding-left: 30%;
+    padding-top: 10%;
+}
+
+#username,
+#number,
+.profile-wrds {
+    color: #ffffff;
+    text-align: center;
+    font-size: 2em;
+}
+
+.profile-wrds {
+    font-size: 1.5em;
+}
+
+#number {
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.settings {
+    margin-top: 30%;
+}
+
+.settings h2,
+.settings p {
+    font-size: 2em;
+    margin-left: 2%
+}
+
+.settings p {
+    margin-top: -5%;
+    font-size: 1em;
+}
+
+.settings input {
+    padding: 8px 10px;
+}
+
+
+/* Footer */
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    color: #ffffff;
+    background-color: #020024;
+    text-align: center;
+}
+
+
+
+
+/* Media Queries */
+
+@media(max-width: 1300px) {
+    .container {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-top: 130px;
+        margin-bottom: 130px;
+    }
+
+    ::placeholder {
+        font-size: 1em;
+    }
+
+    .brand {
+        margin-left: 0px;
+    }
+
+
+    .art-work {
+        width: 100%;
+        background: url("../img/happy.jpg") no-repeat 0 -500px;
+        opacity: 0.1;
+    }
+
+    aside {
+        background: #D2DAE6;
+        width: 100%;
+        text-align: center;
+    }
+
+    .headline {
+        font-size: 30px;
+    }
+
+    .subtext {
+        font-size: 15px;
+        font-style: initial;
+    }
+
+    /* Thoughts */
+    .thoughts-wrap {
+        width: 90% !important;
+        position: fixed;
+        margin-left: 5%;
+        /* margin-top: 90px; */
+        height: 80vh;
+        /* overflow: scroll; */
+    }
+
+
+    .thoughts {
+        background: #D2DAE6;
+        width: 90%;
+        float: left;
+        /* text-align: center; */
+        opacity: 0.7;
+        /* height: 80vh; */
+        overflow: scroll;
+    }
+
+    .options {
+        width: 10%;
+        background: #020024;
+        /* height: 80vh; */
+        position: relative;
+    }
+
+    #account-btn img {
+        width: 20px !important;
+    }
+
+    .btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .item div,
+    .checkbox {
+        float: right;
+        margin-right: 3%;
+        margin-top: 1.5%;
+        position: relative;
+    }
+
+    .item {
+        margin-left: -3%;
+    }
+
+    .popUp {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: -30%;
+        top: 0;
+        width: 160%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
+    /* Header */
+    header {
+        background: #020024;
+        color: #ffffff;
+        display: flex;
+    }
+
+    #brand {
+        float: left;
+        margin-left: 30px;
+        font-size: 15px;
+    }
+
+    header a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 15px;
+    }
+
+    header nav {
+        float: right;
+        padding-left: 60%;
+        margin-top: 7px;
+    }
+
+    /* Account Settings Page */
+
+    #account {
+        width: 100%;
+        float: left;
+        min-height: 700px;
+        z-index: -1;
+        background: #020024;
+    }
+
+    .settings h2,
+    .settings p {
+        font-size: 1.5em;
+        margin-left: 2%
+    }
+
+    .settings p {
+        margin-top: -2%;
+        font-size: 1em;
+    }
+}
+
+@media(max-width: 800px) {
+    #brand {
+        margin-left: 40px;
+        font-size: 10px;
+    }
+
+    header nav {
+        float: right;
+        padding-left: 58%;
+        margin-top: 0px;
+    }
+
+    .item div,
+    .checkbox {
+        float: right;
+        margin-right: 3%;
+        margin-top: 2%;
+        position: relative;
+    }
+}
+
+@media(max-width: 700px) {
+    header nav {
+        float: right;
+        padding-left: 50%;
+        margin-top: 0px;
+    }
+
+    .item {
+        margin-left: -8%;
+    }
+
+    .item div,
+    .checkbox {
+        float: right;
+        margin-right: 3%;
+        margin-top: 2%;
+        position: relative;
+    }
+}
+
+@media(max-width: 450px) {
+
+    /* Header */
+    header {
+        background: #020024;
+        color: #ffffff;
+        display: flex;
+    }
+
+    #brand {
+        margin-left: 40px;
+        font-size: 10px;
+    }
+
+    header a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 10px;
+    }
+
+    header nav {
+        float: right;
+        padding-left: 20%;
+        margin-top: 0px;
+    }
+
+    /* Sign Up & Sign In*/
+
+    .container {
+        width: 90%;
+        margin: auto;
+        margin-top: 60px;
+        overflow: scroll;
+        border-radius: 10px;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .btn img {
+        width: 10px;
+        height: 10px;
+    }
+
+    .thoughts-wrap {
+        width: 90% !important;
+        margin-left: 3.5%;
+        margin-top: 12%;
+        height: 60vh;
+    }
+
+    .item div,
+    .checkbox {
+        float: right;
+        margin-right: 3%;
+        margin-top: 4%;
+        position: relative;
+    }
+}
+
+@media(max-width: 350px) {
+    #brand {
+        margin-left: 20px;
+        font-size: 10px;
+    }
+
+    header nav {
+        float: right;
+        padding-left: 15%;
+        margin-top: 0px;
+    }
+
+    .item div,
+    .checkbox {
+        float: right;
+        margin-right: 3%;
+        margin-top: 6%;
+        position: relative;
+    }
+
+}
