@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>MyDiary</title>
+</head>
+
+<body>
+    <header>
+        <div id="brand">
+            <h1>MyDiary</h1>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+            <a id="account-btn" class="dropdown">
+                <img src="./img/icons/account.png" alt="Account">
+                <div class="dropdown-content">
+                    <button class="dropdown-btn" id="profile-btn">Profile</button>
+                    <button class="dropdown-btn" onclick="logOut()">Logout</button>
+                </div>
+            </a>
+        </nav>
+    </header>
+    <div class="container">
+        <section>
+            <div id="account">
+                <img src="./img/icons/account.png" alt="account">
+                <div class="profile">
+                    <h1 id="username">Jim Ntare</h1>
+                    <p class="profile-wrds">You've made</p>
+                    <p class="profile-wrds" id="number">300</p>
+                    <p class="profile-wrds">Entries So far</p>
+                </div>
+            </div>
+
+
+        </section>
+
+        <aside>
+            <div class="settings">
+                <h2>Reminder Settings</h2>
+                <p>Set a reminder for your daily entries</p>
+                <form action="">
+                    <div>
+                        <!-- <label for="name">Name</label><br /> -->
+                        <input type="time" />
+                    </div>
+                    <button type="submit">Set</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>MyDiary App, Copyright &copy; 2019</p>
+    </footer>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
