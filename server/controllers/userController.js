@@ -4,7 +4,8 @@ import {
 } from "../helpers/generateToken";
 
 import {
-    encryptPassword
+    encryptPassword,
+    decryptPassword
 } from "../helpers/securePwd";
 
 export const users = [];
@@ -38,6 +39,28 @@ class UserController {
             message: 'User created successfully',
             token: userToken
         })
+    }
+
+    static signIn = (req, res) => {
+        let {
+            email,
+            password
+        } = req.body;
+
+        const registeredUser = users.find((user) => user.email === email);
+
+        if (registeredUser && (decryptPassword(password, registeredUser.password))) {
+            const userToken = generateToken(email, password);
+            return res.status(201).send({
+                status: 201,
+                token: userToken
+            });
+        } else {
+            return res.status(409).send({
+                status: 409,
+                error: `${email} or password is incorrect`
+            });
+        }
     }
 }
 

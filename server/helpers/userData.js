@@ -27,5 +27,9 @@ export const userData = [{
         lastName: "Ntare",
         email: "jim@gmail.com",
         password: "ntare12345"
+    },
+    {
+        email: "jim@gmail.com",
+        password: "ntare12345"
     }
 ]
