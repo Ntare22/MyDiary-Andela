@@ -24,11 +24,11 @@ window.onclick = (event) => {
     }
 }
 
-/* Redirect to Profile, & Thoughts pages */
-document.getElementById("profile-btn").onclick = () => {
-    location.href = "../ui/profile.html";
-}
+/* Redirect to Profile, & entries pages */
 
+document.getElementById("profile-btn").onclick = () => {
+    window.location.href = "./profile.html";
+}
 
 
 const saveEntry = () => {
@@ -59,9 +59,9 @@ const saveEntry = () => {
 
 /************* Login ***************/
 
-const logIn = () => {
-    console.log("We're logged in")
-}
+// const logIn = () => {
+//     console.log("We're logged in")
+// }
 
 
 
@@ -70,3 +70,5 @@ const logIn = () => {
 const logOut = () => {
     console.log("And we're logged out!!!!")
 }
+
+window.onload = logOut;
