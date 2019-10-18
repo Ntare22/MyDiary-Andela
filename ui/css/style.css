@@ -262,8 +262,9 @@ aside p a:hover {
 }
 
 .buttons,
-.settings button {
-    padding: 12px 20%;
+.settings button,
+.thoughts-btn {
+    padding: 12px 15%;
     background: #020024;
     color: #ffffff;
     font-size: 100%;
