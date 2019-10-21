@@ -33,6 +33,7 @@ class UserController {
         users.push(saveUser);
 
         const userToken = generateToken(id, email);
+        // console.log(userToken)
 
         return res.status(201).send({
             status: 201,
@@ -50,7 +51,7 @@ class UserController {
         const registeredUser = users.find((user) => user.email === email);
 
         if (registeredUser && (decryptPassword(password, registeredUser.password))) {
-            const userToken = generateToken(email, password);
+            const userToken = generateToken(registeredUser.id, email);
             return res.status(201).send({
                 status: 201,
                 token: userToken
