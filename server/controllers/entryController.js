@@ -56,7 +56,31 @@ class EntryController {
     }
 
     static deleteEntry = (req, res) => {
+        let {
+            title,
+            description
+        } = req.body;
 
+        const singleEntry = entries.find(e => e.entryId === parseInt(req.params.entryId));
+
+        singleEntry.title = title;
+        singleEntry.description = description;
+
+        if (!singleEntry) {
+            return res.status(404).send({
+                status: 404,
+                error: 'Entry entered not found'
+            });
+        }
+
+        const index = entries.indexOf(singleEntry);
+        console.log(index);
+        entries.splice(index, 1);
+
+        return res.status(200).send({
+            status: 200,
+            message: 'Entry has been deleted'
+        });
     }
 
     static viewEntries = (req, res) => {

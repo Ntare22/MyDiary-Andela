@@ -151,3 +151,21 @@ describe('PATCH entries ,/api/v1/entries/:entryId', () => {
     });
 
 })
+
+describe('DELETE entries ,/api/v1/entries/:entryId', () => {
+    it('should return entryId has been deleted ', (done) => {
+        chai.request(index)
+            .patch('/api/v1/entries/1')
+            .set('authorization', userToken)
+            .set('Accept', 'application/json')
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.status).to.equal(200);
+                expect(res.body.status).to.equal(200);
+                done();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
+})
