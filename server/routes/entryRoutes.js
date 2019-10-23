@@ -9,6 +9,6 @@ entryRouter.post('/entries', verifyToken, validateEntry, entryController.createE
 entryRouter.patch('/entries/:entryId', entryController.modifyEntry);
 entryRouter.delete('/entries/:entryId', entryController.deleteEntry);
 entryRouter.get('/entries', entryController.viewEntries);
-
+entryRouter.get('/entries/:entryId', entryController.viewEntry)
 
 export default entryRouter;
