@@ -92,7 +92,19 @@ class EntryController {
     }
 
     static viewEntry = (req, res) => {
-        
+        const singleEntry = entries.find(e => e.entryId === parseInt(req.params.entryId));
+
+        if (!singleEntry) {
+            return res.status(404).send({
+                status: 404,
+                error: 'Entry has not been found'
+            })
+        }
+
+        return res.status(200).send({
+            status: 200,
+            data: singleEntry
+        })
     }
 }
 
