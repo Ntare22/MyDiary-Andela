@@ -85,10 +85,14 @@ class EntryController {
 
     static viewEntries = (req, res) => {
 
+        return res.status(200).send({
+            status: 200,
+            data: entries
+        })
     }
 
     static viewEntry = (req, res) => {
-
+        
     }
 }
 
