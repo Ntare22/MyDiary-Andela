@@ -8,5 +8,7 @@ const entryRouter = express.Router();
 entryRouter.post('/entries', verifyToken, validateEntry, entryController.createEntry);
 entryRouter.patch('/entries/:entryId', entryController.modifyEntry);
 entryRouter.delete('/entries/:entryId', entryController.deleteEntry);
+entryRouter.get('/entries', entryController.viewEntries);
+
 
 export default entryRouter;
