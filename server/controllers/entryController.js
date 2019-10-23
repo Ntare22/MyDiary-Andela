@@ -32,7 +32,27 @@ class EntryController {
     }
 
     static modifyEntry = (req, res) => {
+        let {
+            title,
+            description
+        } = req.body;
 
+        const singleEntry = entries.find(e => e.entryId === parseInt(req.params.entryId));
+
+        if (!singleEntry) {
+            return res.status(400).send({
+                status: 400,
+                error: 'Entry entered is invalid'
+            });
+        }
+
+        singleEntry.title = title;
+        singleEntry.description = description;
+
+        return res.status(200).send({
+            status: 200,
+            data: singleEntry
+        })
     }
 
     static deleteEntry = (req, res) => {
