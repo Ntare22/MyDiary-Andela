@@ -54,7 +54,6 @@ const saveEntry = () => {
 
 }
 
-// document.getElementsByClassName("item").onclick = location.href = "./single-entry.html"
 
 
 
