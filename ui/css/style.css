@@ -17,9 +17,6 @@ body {
     margin-bottom: 130px;
 }
 
-::placeholder {
-    font-size: 1.5em;
-}
 
 /* Header */
 header {
@@ -166,6 +163,10 @@ aside {
     margin-left: 60%;
 }
 
+.update-btn {
+    margin-left: 60%;
+}
+
 aside h1 {
     font-size: 50px;
     color: #020024;
@@ -202,11 +203,11 @@ aside p a:hover {
     background: #D2DAE6;
     width: 94%;
     float: left;
-    /* text-align: center; */
     opacity: 0.6;
     height: 80vh;
     overflow: scroll;
 }
+
 
 #twrap {
     overflow: scroll;
@@ -214,17 +215,18 @@ aside p a:hover {
 
 .item {
     background: #020024;
-    margin-bottom: 5px;
+    margin-top: 1%;
     margin-right: 5%;
-    margin-left: -1%;
+    margin-left: 4%;
     border-radius: 5px;
     padding-left: 3%;
     padding-top: 1%;
     padding-bottom: 1%;
-    list-style-type: none;
     font-size: 150%;
     opacity: 1;
     color: #ffffff;
+    text-decoration: none;
+    display: block;
 }
 
 .item:hover {
@@ -288,6 +290,25 @@ aside p a:hover {
     height: 20px;
 }
 
+/* Single thoughts Page*/
+
+.single-thought {
+    background: #020024;
+    width: 100%;
+    float: left;
+    height: 80vh;
+    padding-top: 2%;
+}
+
+.update-btn {
+    border: 2px #ffffff solid;
+}
+
+.update-btn:hover {
+    background-color: #ffffff;
+    color: #020024;
+}
+
 /* Thoughts Pop up */
 
 .popUp {
@@ -336,6 +357,32 @@ aside p a:hover {
     resize: none;
     margin-top: 10px;
     background-color: #f8f8f8;
+}
+
+
+#entry-heading {
+    width: 80%;
+    border-radius: 7px;
+    height: 3vh;
+    margin-left: 2%;
+    border: 2px solid;
+    border-color: #020024;
+    font-size: 1em;
+    padding-left: 1%;
+}
+
+#entry {
+    width: 91%;
+    height: 60vh;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #020024;
+    resize: none;
+    margin-top: 10px;
+    background-color: #f8f8f8;
+    margin-left: 2%;
+    font-size: 1.5em;
+    padding-left: 1%;
 }
 
 /* Account Settings Page */
