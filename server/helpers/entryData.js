@@ -16,4 +16,10 @@ export const entryData = [{
 }, {
     title: "update title",
     description: "description update"
+}, {
+    entryId: 1,
+    userId: 1,
+    title: "javascripdt andela 1",
+    description: "dfjapfjapoejfapohtaht lsjdfadealjfdsafda",
+    dateCreated: "29/9/2019"
 }]

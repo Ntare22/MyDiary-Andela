@@ -69,7 +69,7 @@ class EntryController {
         if (!singleEntry) {
             return res.status(404).send({
                 status: 404,
-                error: 'Entry entered not found'
+                error: 'Entry entered Not Available'
             });
         }
 
@@ -77,8 +77,8 @@ class EntryController {
         console.log(index);
         entries.splice(index, 1);
 
-        return res.status(200).send({
-            status: 200,
+        return res.status(204).send({
+            status: 204,
             message: 'Entry has been deleted'
         });
     }
@@ -98,6 +98,13 @@ class EntryController {
             return res.status(404).send({
                 status: 404,
                 error: 'Entry has not been found'
+            })
+        }
+
+        if (typeof singleEntry !== "number") {
+            return res.status(400).send({
+                status: 400,
+                error: 'Entry ID is invalid'
             })
         }
 

@@ -2,8 +2,8 @@ import Joi from "joi";
 
 const validateUser = (req, res, next) => {
     const schema = {
-        firstName: Joi.string().regex(/^[a-zA-Z]+$/).max(20).required(),
-        lastName: Joi.string().regex(/^[a-zA-Z]+$/).max(20).required(),
+        firstName: Joi.string().regex(/^[a-zA-Z\s\S]+$/).max(20).required(),
+        lastName: Joi.string().regex(/^[a-zA-Z ]+$/).max(20).required(),
         email: Joi.string().email().required(),
         password: Joi.string().regex(/^[a-zA-Z0-9]+$/).min(8).max(15).required()
     };
