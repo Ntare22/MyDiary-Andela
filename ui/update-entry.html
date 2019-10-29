@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>MyDiary | Entry</title>
+</head>
+
+<body>
+  <header>
+    <div id="brand">
+      <h1>MyDiary</h1>
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./entries.html">Entries</a></li>
+      </ul>
+      <div id="account-btn" class="dropdown">
+        <img src="./img/icons/account.png" alt="Account">
+        <div class="dropdown-content">
+          <a class="dropdown-btn" id="profile-btn" href="profile.html">Profile</a>
+          <a class="dropdown-btn" id="logout-btn" href="login.html">Logout</a>
+        </div>
+      </div>
+    </nav>
+    <nav id="responsive-navbar">
+      <div id="hamburger-btn" class="dropdown">
+        <input type="checkbox">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="dropdown-content">
+          <ul>
+            <li><a class="hamburger-content" href="./index.html">Home</a></li>
+            <br>
+            <br>
+            <li><a class="hamburger-content" href="./entries.html">Entries</a></li>
+            <br>
+            <br>
+            <li><a class="hamburger-content" href="profile.html">Profile</a></li>
+            <br>
+            <br>
+            <li><a class="hamburger-content" href="login.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="thoughts-wrap">
+    <div class="single-thought">
+      <div class="">
+        <form action="">
+          <input type="text" id="entry-heading" placeholder="Heading of Entry" />
+          <br>
+          <textarea name="thoughts" id="entry" placeholder="Update your thoughts here..."></textarea>
+        </form>
+      </div>
+      <br>
+      <a class="update-btn save-btn buttons" type="submit" href="entries.html">Update</a>
+    </div>
+  </div>
+  <footer>
+    <p>MyDiary App, Copyright &copy; 2019</p>
+  </footer>
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

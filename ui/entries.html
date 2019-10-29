@@ -29,10 +29,11 @@
         </nav>
         <nav id="responsive-navbar">
             <div id="hamburger-btn" class="dropdown">
+                <input type="checkbox">
                 <div class="hamburger"></div>
                 <div class="hamburger"></div>
                 <div class="hamburger"></div>
-                <div class="dropdown-content">
+                <div class="hamburger-dropdown">
                     <ul>
                         <li><a class="hamburger-content" href="./index.html">Home</a></li>
                         <br>
@@ -51,19 +52,28 @@
     </header>
     <div class="thoughts-wrap">
         <div class="thoughts">
-            <id id="t-wrap"></id>
+            <id id="t-wrap">
+                <a class="item" href="./single-entry.html">
+                    This is a single entry
+                    <input type="checkbox" class="checkbox">
+                </a>
+                <a class="item" href="./single-entry.html">
+                    This is a another single entry
+                    <input type="checkbox" class="checkbox">
+                </a>
+            </id>
         </div>
         <aside class="options">
             <div class="buttons"></div>
-            <button id="new-entry" class="btn">
+            <button id="new-entry" class="btn" onclick="addEntry()">
                 <img src="./img/icons/add-icon.png" alt="Add Entry">
             </button>
-            <button id="edit-entry" class="btn" onclick="">
+            <!-- <button id="edit-entry" class="btn" onclick="">
                 <img src="./img/icons/edit-icon.png" alt="Edit Entry">
-            </button>
-            <button id="delete-entry" class="btn" onclick="">
+            </button> -->
+            <!-- <button id="delete-entry" class="btn" onclick="">
                 <img src="./img/icons/delete-icon.png" alt="Delete Entry">
-            </button>
+            </button> -->
         </aside>
     </div>
 
