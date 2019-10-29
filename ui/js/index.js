@@ -3,15 +3,31 @@
 /* My Popup */
 const myPopup = document.getElementById("enter-thought");
 
-/* Button to bring out Popup */
-const popUpBtn = document.getElementById("new-entry");
-
 /* The span element that closes the popup */
 const closeBtn = document.getElementsByClassName("close")[0];
 
 
-/* When user clicks button */
-popUpBtn.onclick = () => myPopup.style.display = "block";
+const addEntry = () => {
+    const entryBtn = document.getElementById("new-entry");
+    entryBtn.onclick = () => {
+        location.href = "./add-entry.html"
+    }
+}
+
+const updateEntry = () => {
+    const updateBtn = document.getElementById("edit-entry");
+    updateBtn.onclick = () => {
+        location.href = "./update-entry.html"
+    }
+}
+
+const deleteEntry = () => {
+    const deleteBtn = document.getElementById("delete-entry");
+    deleteBtn.onclick = () => {
+        location.href = "./entries.html"
+    }
+}
+
 
 /* When user clicks on X or Save button */
 closeBtn.onclick = () => myPopup.style.display = "none";
@@ -24,9 +40,6 @@ window.onclick = (event) => {
     }
 }
 
-document.getElementById("edit-entry").style.display = "none";
-document.getElementById("delete-entry").style.display = "none";
-
 const saveEntry = () => {
     const entryList = document.getElementById("t-wrap");
     const entryHead = document.getElementById("thought-heading").value;
@@ -36,7 +49,6 @@ const saveEntry = () => {
     entryItem.className = "item";
     inputElement.className = "checkbox";
     entryItem.href = "./single-entry.html"
-    // const entryNotes = document.getElementById("thoughts").value;
 
 
     if (entryHead == "") {
@@ -45,9 +57,6 @@ const saveEntry = () => {
         entryItem.innerHTML = entryHead;
         entryItem.appendChild(inputElement);
         entryList.appendChild(entryItem);
-
-        document.getElementById("edit-entry").style.display = "block";
-        document.getElementById("delete-entry").style.display = "block";
 
         myPopup.style.display = "none";
     }

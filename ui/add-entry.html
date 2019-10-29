@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="./css/style.css" />
-  <title>MyDiary | Entries</title>
+  <title>MyDiary | Entry</title>
 </head>
 
 <body>
@@ -51,42 +51,17 @@
     </nav>
   </header>
   <div class="thoughts-wrap">
-    <div id="single-entry">
-      <div id="entry-content">
-        <h1>This is a single entry</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, provident eaque eius deserunt explicabo
-          accusantium eveniet similique placeat, quasi animi natus libero voluptatem doloremque sit a. Perspiciatis
-          distinctio laudantium nobis!
+    <div class="single-thought">
+      <div class="">
+        <form action="">
+          <input type="text" id="entry-heading" placeholder="Heading of Entry" />
           <br>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, provident eaque eius deserunt explicabo
-          accusantium
-          eveniet similique placeat, quasi animi natus libero voluptatem doloremque sit a. Perspiciatis distinctio
-          laudantium
-          nobis!
-          <br>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, provident eaque eius deserunt explicabo
-          accusantium
-          eveniet similique placeat, quasi animi natus libero voluptatem doloremque sit a. Perspiciatis distinctio
-          laudantium
-          nobis!
-          <br>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, provident eaque eius deserunt explicabo
-          accusantium
-          eveniet similique placeat, quasi animi natus libero voluptatem doloremque sit a. Perspiciatis distinctio
-          laudantium
-          nobis!</p>
+          <textarea name="thoughts" id="entry" placeholder="Put down your thoughts here..."></textarea>
+        </form>
       </div>
-      <p id="date-created">Created on <a>12/12/12</a></p>
+      <br>
+      <a class="update-btn save-btn buttons" type="submit" href="entries.html">Save</a>
     </div>
-    <aside class="options">
-      <div class="buttons"></div>
-      <button id="edit-entry" class="btn" onclick="updateEntry()">
-        <img src="./img/icons/edit-icon.png" alt="Edit Entry">
-      </button>
-      <button id="delete-entry" class="btn" onclick="deleteEntry()">
-        <img src="./img/icons/delete-icon.png" alt="Delete Entry">
-      </button>
-    </aside>
   </div>
   <footer>
     <p>MyDiary App, Copyright &copy; 2019</p>

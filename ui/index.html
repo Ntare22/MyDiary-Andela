@@ -16,10 +16,29 @@
         </div>
         <nav id="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="entries.html">Entries</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./entries.html">Entries</a></li>
+                <li><a href="./login.html">Login</a></li>
             </ul>
+        </nav>
+        <nav id="responsive-navbar">
+            <div id="hamburger-btn" class="dropdown">
+                <input type="checkbox">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger-dropdown">
+                    <ul>
+                        <li><a class="hamburger-content" href="./index.html">Home</a></li>
+                        <br>
+                        <br>
+                        <li><a class="hamburger-content" href="./entries.html">Entries</a></li>
+                        <br>
+                        <br>
+                        <li><a class="hamburger-content" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <div class="container">
@@ -40,20 +59,16 @@
                 <form action="" class="signup-info">
                     <div class="names">
                         <div>
-                            <!-- <label for="name">Name</label><br /> -->
                             <input type="text" placeholder="First Name" />
                         </div>
                         <div>
-                            <!-- <label for="name">Name</label><br /> -->
                             <input type="text" placeholder="Last Name" />
                         </div>
                     </div>
                     <div>
-                        <!-- <label for="name">Name</label><br /> -->
                         <input type="text" placeholder="Email" />
                     </div>
                     <div>
-                        <!-- <label for="name">Name</label><br /> -->
                         <input type="text" placeholder="Password" />
                     </div>
                     <br>

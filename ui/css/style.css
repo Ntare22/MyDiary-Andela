@@ -106,7 +106,58 @@ header nav {
     color: #020024;
 }
 
+div.hamburger {
+    width: 35px;
+    height: 5px;
+    background-color: #ffffffff;
+    margin: 6px 0;
+    display: none;
+}
 
+#hamburger-btn {
+    display: none;
+    margin: auto;
+    border: none;
+    background-color: transparent;
+}
+
+#hamburger-btn input {
+    z-index: 1;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    opacity: 0;
+    display: none;
+}
+
+.hamburger-content {
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.hamburger-content:hover {
+    font-weight: bold;
+}
+
+.hamburger-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #020024;
+    min-width: 160px;
+    min-height: 160px;
+    padding: 18em 29em;
+    z-index: 1;
+}
+
+#hamburger-btn input:checked ~ .hamburger-dropdown {
+    display: block;
+    top: 100%;
+    width: 100%;
+    right: -90px;
+}
 
 /*Sign Up & Sign In*/
 .art-work {
@@ -165,7 +216,7 @@ aside {
 }
 
 .update-btn {
-    margin-left: 60%;
+    margin-left: 2%;
 }
 
 aside h1 {
@@ -192,7 +243,7 @@ aside p a:hover {
     width: 80%;
     margin: auto;
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 10%;
     margin-bottom: 80px;
     border-radius: 10px;
     position: static;
@@ -209,6 +260,26 @@ aside p a:hover {
     overflow: scroll;
 }
 
+#single-entry {
+    background: #D2DAE6;
+    width: 94%;
+    float: left;
+    height: 80vh;
+    overflow: scroll;
+}
+
+#entry-content {
+    margin: 15px 24px;
+}
+
+#entry-content p {
+    font-size: 1.5em;
+}
+
+#date-created {
+    margin-left: 80%;
+    font-size: 12px !important;
+}
 
 #twrap {
     overflow: scroll;
@@ -223,7 +294,7 @@ aside p a:hover {
     padding-left: 3%;
     padding-top: 1%;
     padding-bottom: 1%;
-    font-size: 150%;
+    font-size: 1em;
     opacity: 1;
     color: #ffffff;
     text-decoration: none;
@@ -260,6 +331,7 @@ aside p a:hover {
     font-size: 100%;
     font-weight: bold;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 .options .btn {
@@ -362,7 +434,7 @@ aside p a:hover {
 
 
 #entry-heading {
-    width: 80%;
+    width: 91%;
     border-radius: 7px;
     height: 3vh;
     margin-left: 2%;
@@ -498,31 +570,38 @@ footer {
         font-style: initial;
     }
 
-    /* Thoughts */
-    .thoughts-wrap {
-        width: 90% !important;
-        position: fixed;
-        margin-left: 5%;
-        /* margin-top: 90px; */
-        height: 80vh;
-        /* overflow: scroll; */
-    }
-
-
     .thoughts {
         background: #D2DAE6;
         width: 90%;
         float: left;
-        /* text-align: center; */
         opacity: 0.7;
-        /* height: 80vh; */
         overflow: scroll;
+    }
+
+    #single-entry {
+        background: #D2DAE6;
+        width: 90%;
+        float: left;
+        height: 80vh;
+        overflow: scroll;
+    }
+
+    #entry-content {
+        margin: 15px 24px;
+    }
+
+    #entry-content p {
+        font-size: 1em;
+    }
+
+    #date-created {
+        margin-left: 80%;
+        font-size: 12px !important;
     }
 
     .options {
         width: 10%;
         background: #020024;
-        /* height: 80vh; */
         position: relative;
     }
 
@@ -539,12 +618,12 @@ footer {
     .checkbox {
         float: right;
         margin-right: 3%;
-        margin-top: 1.5%;
+        margin-top: 1%;
         position: relative;
     }
 
     .item {
-        margin-left: -3%;
+        margin-left: 3%;
     }
 
     .popUp {
@@ -560,7 +639,16 @@ footer {
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 0.4);
     }
-
+    .buttons,
+    .settings button,
+    .thoughts-btn {
+    padding: 1% 12%;
+    background: #020024;
+    color: #ffffff;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    }
 
     /* Header */
     header {
@@ -588,6 +676,46 @@ footer {
         margin-top: 7px;
     }
 
+    #navbar {
+        display: none;
+    }
+
+    #responsive-navbar {
+        margin-left: 10%;
+        margin-top: 1%;
+    }
+
+    div.hamburger {
+    width: 35px;
+    height: 5px;
+    background-color: #ffffffff;
+    margin: 6px 0;
+    display: block;
+    }
+
+    .hamburger-content {
+        margin-top: 100px;
+    }
+
+    #hamburger-btn input {
+    z-index: 1;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    opacity: 0;
+    display:block;
+    }
+
+    .hamburger-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #020024;
+    padding: 40em 30em;
+    z-index: 1;
+    }
+
     /* Account Settings Page */
 
     #account {
@@ -611,15 +739,32 @@ footer {
 }
 
 @media(max-width: 800px) {
-    #brand {
-        margin-left: 40px;
-        font-size: 10px;
+    #responsive-navbar {
+        margin-left: 1%;
+        margin-top: 2%;
     }
 
-    header nav {
-        float: right;
-        padding-left: 58%;
-        margin-top: 0px;
+    .hamburger-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #020024;
+    padding: 18em 20em;
+    z-index: 1;
+    }
+
+    #hamburger-btn input:checked ~ .hamburger-dropdown {
+    display: block;
+    top: 112%;
+    width: 100%;
+    right: -95px;
+    }
+
+    .thoughts-wrap {
+    margin-top: 10%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item div,
@@ -632,14 +777,36 @@ footer {
 }
 
 @media(max-width: 700px) {
-    header nav {
-        float: right;
-        padding-left: 50%;
-        margin-top: 0px;
+    #responsive-navbar {
+        margin-left: -10%;
+        margin-top: 2%;
+    }
+
+    .hamburger-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #020024;
+    padding: 18em 20em;
+    z-index: 1;
+    }
+
+    #hamburger-btn input:checked ~ .hamburger-dropdown {
+    display: block;
+    top: 112%;
+    width: 100%;
+    right: -150px;
+    }
+
+    .thoughts-wrap {
+    margin-top: 15%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item {
-        margin-left: -8%;
+        margin-left: 8%;
     }
 
     .item div,
@@ -654,28 +821,17 @@ footer {
 @media(max-width: 450px) {
 
     /* Header */
-    header {
-        background: #020024;
-        color: #ffffff;
-        display: flex;
+    #responsive-navbar {
+        margin-left: -30%;
+        margin-top: 2%;
     }
 
-    #brand {
-        margin-left: 40px;
-        font-size: 10px;
-    }
-
-    header a {
-        color: #ffffff;
-        text-decoration: none;
-        text-transform: capitalize;
-        font-size: 10px;
-    }
-
-    header nav {
-        float: right;
-        padding-left: 20%;
-        margin-top: 0px;
+    .hamburger-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #020024;
+    padding: 17em 13em;
+    z-index: 1;
     }
 
     /* Sign Up & Sign In*/
@@ -696,10 +852,11 @@ footer {
     }
 
     .thoughts-wrap {
-        width: 90% !important;
-        margin-left: 3.5%;
-        margin-top: 12%;
-        height: 60vh;
+    margin-top: 20%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item div,
@@ -711,16 +868,26 @@ footer {
     }
 }
 
-@media(max-width: 350px) {
-    #brand {
-        margin-left: 20px;
-        font-size: 10px;
+@media(max-width: 370px) {
+    #responsive-navbar {
+        margin-left: -30%;
+        margin-top: 4%;
     }
 
-    header nav {
-        float: right;
-        padding-left: 15%;
-        margin-top: 0px;
+    .hamburger-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #020024;
+    padding: 12em 13em;
+    z-index: 1;
+    }
+
+    .thoughts-wrap {
+    margin-top: 25%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item div,
@@ -731,4 +898,21 @@ footer {
         position: relative;
     }
 
+    .buttons,
+    .settings button,
+    .thoughts-btn {
+        padding: 2% 12%;
+        background: #020024;
+        color: #ffffff;
+        font-size: 100%;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    #entry-heading {
+        font-size: 0.9em;
+    }
+
+    #entry {
+        font-size: 1em;
+    }
 }
