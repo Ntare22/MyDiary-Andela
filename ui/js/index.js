@@ -3,15 +3,8 @@
 /* My Popup */
 const myPopup = document.getElementById("enter-thought");
 
-
-
-// const updateBtn = document.getElementById("edit-entry");
-
-
 /* The span element that closes the popup */
 const closeBtn = document.getElementsByClassName("close")[0];
-
-
 
 
 const addEntry = () => {
@@ -56,7 +49,6 @@ const saveEntry = () => {
     entryItem.className = "item";
     inputElement.className = "checkbox";
     entryItem.href = "./single-entry.html"
-    // const entryNotes = document.getElementById("thoughts").value;
 
 
     if (entryHead == "") {

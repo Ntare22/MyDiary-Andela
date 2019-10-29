@@ -159,11 +159,6 @@ div.hamburger {
     right: -90px;
 }
 
-/* .dropdown:hover .hamburger-dropdown {
-    display: block;
-    right: -70px;
-} */
-
 /*Sign Up & Sign In*/
 .art-work {
     float: left;
@@ -221,7 +216,7 @@ aside {
 }
 
 .update-btn {
-    margin-left: 60%;
+    margin-left: 2%;
 }
 
 aside h1 {
@@ -248,7 +243,7 @@ aside p a:hover {
     width: 80%;
     margin: auto;
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 10%;
     margin-bottom: 80px;
     border-radius: 10px;
     position: static;
@@ -278,7 +273,7 @@ aside p a:hover {
 }
 
 #entry-content p {
-    font-size: 24px;
+    font-size: 1.5em;
 }
 
 #date-created {
@@ -299,7 +294,7 @@ aside p a:hover {
     padding-left: 3%;
     padding-top: 1%;
     padding-bottom: 1%;
-    font-size: 150%;
+    font-size: 1em;
     opacity: 1;
     color: #ffffff;
     text-decoration: none;
@@ -336,6 +331,7 @@ aside p a:hover {
     font-size: 100%;
     font-weight: bold;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 .options .btn {
@@ -438,7 +434,7 @@ aside p a:hover {
 
 
 #entry-heading {
-    width: 80%;
+    width: 91%;
     border-radius: 7px;
     height: 3vh;
     margin-left: 2%;
@@ -574,21 +570,33 @@ footer {
         font-style: initial;
     }
 
-    /* Thoughts */
-    .thoughts-wrap {
-        width: 90% !important;
-        position: fixed;
-        margin-left: 5%;
-        height: 80vh;
-    }
-
-
     .thoughts {
         background: #D2DAE6;
         width: 90%;
         float: left;
         opacity: 0.7;
         overflow: scroll;
+    }
+
+    #single-entry {
+        background: #D2DAE6;
+        width: 90%;
+        float: left;
+        height: 80vh;
+        overflow: scroll;
+    }
+
+    #entry-content {
+        margin: 15px 24px;
+    }
+
+    #entry-content p {
+        font-size: 1em;
+    }
+
+    #date-created {
+        margin-left: 80%;
+        font-size: 12px !important;
     }
 
     .options {
@@ -631,7 +639,16 @@ footer {
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 0.4);
     }
-
+    .buttons,
+    .settings button,
+    .thoughts-btn {
+    padding: 1% 12%;
+    background: #020024;
+    color: #ffffff;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    }
 
     /* Header */
     header {
@@ -695,8 +712,6 @@ footer {
     display: none;
     position: absolute;
     background-color: #020024;
-    /* min-width: 160px; */
-    /* min-height: 160px; */
     padding: 40em 30em;
     z-index: 1;
     }
@@ -733,8 +748,6 @@ footer {
     display: none;
     position: absolute;
     background-color: #020024;
-    /* min-width: 160px; */
-    /* min-height: 160px; */
     padding: 18em 20em;
     z-index: 1;
     }
@@ -744,6 +757,14 @@ footer {
     top: 112%;
     width: 100%;
     right: -95px;
+    }
+
+    .thoughts-wrap {
+    margin-top: 10%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item div,
@@ -765,8 +786,6 @@ footer {
     display: none;
     position: absolute;
     background-color: #020024;
-    /* min-width: 160px; */
-    /* min-height: 160px; */
     padding: 18em 20em;
     z-index: 1;
     }
@@ -776,6 +795,14 @@ footer {
     top: 112%;
     width: 100%;
     right: -150px;
+    }
+
+    .thoughts-wrap {
+    margin-top: 15%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item {
@@ -803,8 +830,6 @@ footer {
     display: none;
     position: absolute;
     background-color: #020024;
-    /* min-width: 160px; */
-    /* min-height: 160px; */
     padding: 17em 13em;
     z-index: 1;
     }
@@ -827,10 +852,11 @@ footer {
     }
 
     .thoughts-wrap {
-        width: 90% !important;
-        margin-left: 3.5%;
-        margin-top: 12%;
-        height: 60vh;
+    margin-top: 20%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item div,
@@ -852,10 +878,16 @@ footer {
     display: none;
     position: absolute;
     background-color: #020024;
-    /* min-width: 160px; */
-    /* min-height: 160px; */
     padding: 12em 13em;
     z-index: 1;
+    }
+
+    .thoughts-wrap {
+    margin-top: 25%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: static;
+    height: 80vh;
     }
 
     .item div,
@@ -866,4 +898,21 @@ footer {
         position: relative;
     }
 
+    .buttons,
+    .settings button,
+    .thoughts-btn {
+        padding: 2% 12%;
+        background: #020024;
+        color: #ffffff;
+        font-size: 100%;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    #entry-heading {
+        font-size: 0.9em;
+    }
+
+    #entry {
+        font-size: 1em;
+    }
 }
