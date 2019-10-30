@@ -99,7 +99,6 @@ describe('2. POST signin ', () => {
             .set('Accept', 'application/json')
             .send(userData[5])
             .end((err, res) => {
-                console.log(res.body);
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(201);
                 expect(res.body.status).to.equal(201);

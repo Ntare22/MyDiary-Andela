@@ -18,7 +18,6 @@ describe('POST entries ,/api/v1/entries', () => {
             email: "jim@gmail.com",
             password: "ntare12345",
         }).then((res) => {
-            console.log(res.body.token)
             userToken = res.body.token;
             done();
         })
@@ -55,7 +54,7 @@ describe('POST entries ,/api/v1/entries', () => {
                 done();
             })
             .catch((err) => {
-                console.log(err);
+                console.log(err); 
             });
     });
 
@@ -78,11 +77,12 @@ describe('POST entries ,/api/v1/entries', () => {
     });
 
     it('should return "title" is required ', (done) => {
+        const data = {title: "", description: "salfdjapkdfhpiughpidufad"}
         chai.request(index)
             .post('/api/v1/entries')
             .set('authorization', userToken)
             .set('Accept', 'application/json')
-            .send(entryData[3])
+            .send(data)
             .then((res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(400);
@@ -91,13 +91,13 @@ describe('POST entries ,/api/v1/entries', () => {
                 done();
             })
             .catch((err) => {
-                console.log(err);
+                console.log(err); 
             });
     });
 
     it('should return "title" is required ', (done) => {
         chai.request(index)
-            .post('/api/v1/entries')
+            .post('/api/v1/entries') 
             .set('authorization', userToken)
             .set('Accept', 'application/json')
             .send(entryData[4])
@@ -105,7 +105,7 @@ describe('POST entries ,/api/v1/entries', () => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(400);
                 expect(res.body.status).to.equal(400);
-                expect(res.body.error).to.equal('"title" length must be less than or equal to 20 characters long');
+                expect(res.body.error).to.equal('"title" length must be at least 3 characters long');
                 done();
             })
             .catch((err) => {
@@ -121,7 +121,6 @@ describe('PATCH entries ,/api/v1/entries/:entryId', () => {
             .patch('/api/v1/entries/1')
             .set('authorization', userToken)
             .set('Accept', 'application/json')
-            // .send(entryData[5])
             .then((res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(200);
@@ -138,7 +137,6 @@ describe('PATCH entries ,/api/v1/entries/:entryId', () => {
             .patch('/api/v1/entries/100')
             .set('authorization', userToken)
             .set('Accept', 'application/json')
-            // .send(entryData[5])
             .then((res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(400);
@@ -188,21 +186,36 @@ describe('GET entries ,/api/v1/entries', () => {
     });
 })
 
-// describe('GET entries ,/api/v1/entries/:entryId', () => {
-//     it('should return a single entry ', (done) => {
-//         chai.request(index)
-//             .get(`/api/v1/entries/1`)
-//             .set('authorization', userToken)
-//             .set('Accept', 'application/json')
-//             .send(entryData[6])
-//             .then((res) => {
-//                 expect(res.body).to.be.an('object');
-//                 expect(res.status).to.equal(200);
-//                 expect(res.body.status).to.equal(200);
-//                 done();
-//             })
-//             .catch((err) => {
-//                 console.log(err);
-//             });
-//     });
-// })
+describe('GET entries ,/api/v1/entries/:entryId', () => {
+    it('should return a single entry ', (done) => {
+        chai.request(index)
+            .get(`/api/v1/entries/${parseInt(1)}`)
+            .set('authorization', userToken)
+            .set('Accept', 'application/json')
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.status).to.equal(200);
+                expect(res.body.status).to.equal(200);
+                done();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
+
+    it('should not allow user to pass in which is not a number', (done) => {
+        chai.request(index)
+            .get(`/api/v1/entries/1ojois`)
+            .set('authorization', userToken)
+            .set('Accept', 'application/json')
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.status).to.equal(400);
+                expect(res.body.status).to.equal(400);
+                done();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
+})

@@ -6,6 +6,7 @@ import {
 } from "../controllers/userController"
 
 const veriftyToken = (req, res, next) => {
+    try {
     const authorizationHeader = req.header('authorization');
     if (!authorizationHeader) {
         return res.status(400).send({
@@ -14,7 +15,7 @@ const veriftyToken = (req, res, next) => {
         })
     }
 
-    try {
+    
         const result = returnUserId(authorizationHeader);
         const authUser = users.find(user => user.id === result);
         if (!authUser) {
@@ -24,9 +25,10 @@ const veriftyToken = (req, res, next) => {
             })
         }
         next();
-    } catch (error) {
-        return res.status(400).send({
-            status: 400,
+    } 
+    catch (error) {
+        return res.status(401).json({
+            status: 401,
             error: error.message
         })
     }

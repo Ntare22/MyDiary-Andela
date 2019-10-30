@@ -11,7 +11,7 @@ export const entryData = [{
     title: "",
     description: "amdpoajifdpaodifjapoewihqpierufghaieuf"
 }, {
-    title: "daplkfdjapldfjaoweirja",
+    title: "da",
     description: "dsfoadfjapdlkfjapskdfjx"
 }, {
     title: "update title",
