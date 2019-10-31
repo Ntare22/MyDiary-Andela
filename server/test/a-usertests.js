@@ -60,9 +60,15 @@ describe('1 . POST signup ', () => {
     })
 
     it("should return user created successfully", (done) => {
+        const testData = {
+            firstName: "Jim",
+            lastName: "Ntare",
+            email: "jim@gmail.com",
+            password: "ntare12345"
+        }
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(userData[4])
+            .send(testData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res).to.have.status(201);
