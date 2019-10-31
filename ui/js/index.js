@@ -39,7 +39,6 @@ const saveEntry = () => {
     let entryItem = document.createElement("li");
     entryItem.className = "item";
     inputElement.className = "checkbox";
-    // const entryNotes = document.getElementById("thoughts").value;
 
 
     if (entryHead == "" && entryNotes == "") {

@@ -7,9 +7,9 @@ import verifyParams from "../middleware/verifyParam";
 const entryRouter = express.Router();
 
 entryRouter.post('/entries', verifyToken, validateEntry, entryController.createEntry);
-entryRouter.patch('/entries/:entryId', verifyParams, entryController.modifyEntry);
-entryRouter.delete('/entries/:entryId', verifyParams, entryController.deleteEntry);
-entryRouter.get('/entries', entryController.viewEntries);
-entryRouter.get('/entries/:entryId', verifyParams, entryController.viewEntry)
+entryRouter.patch('/entries/:entryId', verifyParams, verifyToken, entryController.modifyEntry);
+entryRouter.delete('/entries/:entryId', verifyParams, verifyToken, entryController.deleteEntry);
+entryRouter.get('/entries', verifyToken, entryController.viewEntries);
+entryRouter.get('/entries/:entryId', verifyParams, verifyToken, entryController.viewEntry)
 
 export default entryRouter; 
