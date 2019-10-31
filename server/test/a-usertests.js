@@ -60,19 +60,13 @@ describe('1 . POST signup ', () => {
     })
 
     it("should return user created successfully", (done) => {
-        const testData = {
-            firstName: "Jim",
-            lastName: "Ntare",
-            email: "jim@gmail.com",
-            password: "ntare12345"
-        }
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(testData)
+            .send(userData[4])
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res).to.have.status(201);
-                expect(res.body).to.have.property('message')
+                expect(res.body).to.have.property('message');
                 done();
             })
     })
@@ -83,7 +77,7 @@ describe('1 . POST signup ', () => {
             .send(userData[4])
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
-                expect(res.status).to.equal(409);
+                expect(res).to.have.status(409);
                 expect(res.body.status).to.equal(409);
                 done();
             })
