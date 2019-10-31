@@ -23,12 +23,6 @@ export const userData = [{
         password: "nt"
     },
     {
-        firstName: "Jim",
-        lastName: "Ntare",
-        email: "jim@gmail.com",
-        password: "ntare12345"
-    },
-    {
         email: "jim@gmail.com",
         password: "ntare12345"
     }

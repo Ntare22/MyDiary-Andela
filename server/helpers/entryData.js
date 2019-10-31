@@ -11,9 +11,15 @@ export const entryData = [{
     title: "",
     description: "amdpoajifdpaodifjapoewihqpierufghaieuf"
 }, {
-    title: "daplkfdjapldfjaoweirja",
+    title: "da",
     description: "dsfoadfjapdlkfjapskdfjx"
 }, {
     title: "update title",
     description: "description update"
+}, {
+    entryId: 1,
+    userId: 1,
+    title: "javascripdt andela 1",
+    description: "dfjapfjapoejfapohtaht lsjdfadealjfdsafda",
+    dateCreated: "29/9/2019"
 }]
