@@ -1,9 +1,9 @@
 import chai from "chai";
 import chaiHttp from "chai-http";
 import index from "../index";
-import {
-    userData
-} from "../helpers/userData";
+import { userData } from "../helpers/userData";
+import { signUpData } from "../helpers/createUserData";
+import { signInData } from "../helpers/signInData";
 
 const {
     expect
@@ -14,7 +14,7 @@ describe('1 . POST signup ', () => {
     it("should return first name is required", (done) => {
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(userData[0])
+            .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(400);
@@ -26,7 +26,7 @@ describe('1 . POST signup ', () => {
     it("should return last name is required", (done) => {
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(userData[1])
+            .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(400);
@@ -38,7 +38,7 @@ describe('1 . POST signup ', () => {
     it("should return email is required", (done) => {
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(userData[2])
+            .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(400);
@@ -50,7 +50,7 @@ describe('1 . POST signup ', () => {
     it("should return password is required", (done) => {
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(userData[3])
+            .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(400);
@@ -62,7 +62,7 @@ describe('1 . POST signup ', () => {
     it("should return user created successfully", (done) => {
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(userData[4])
+            .send(signUpData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res).to.have.status(201);
@@ -74,7 +74,7 @@ describe('1 . POST signup ', () => {
     it("should return user's email in use", (done) => {
         chai.request(index)
             .post('/api/v1/auth/signup')
-            .send(userData[4])
+            .send(signUpData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res).to.have.status(409);
@@ -89,7 +89,7 @@ describe('2. POST signin ', () => {
     it("should return user logged in successfully", (done) => {
         chai.request(index)
             .post('/api/v1/auth/signin')
-            .send(userData[5])
+            .send(signInData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(201);
