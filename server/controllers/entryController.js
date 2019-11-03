@@ -46,7 +46,48 @@ class EntryController {
         }
     } 
 
-    static modifyEntry = (req, res) => {}
+    static modifyEntry = async (req, res) => {
+        try {
+            let {
+                title,
+                description
+            } = req.body;
+
+            let {
+                entryId
+            } = req.params
+
+            const findEntryId = `SELECT * FROM mydiaryEntries WHERE entryid = $1`;
+            const { rows } = await pool.query(findEntryId, [entryId]);
+
+            if (!rows[0]) {
+                return res.status(400).send({
+                    status: 400,
+                    error: 'Entry entered is invalid'
+                });
+            }
+
+            const updateEntry = `UPDATE mydiaryEntries SET title=$1, description=$2  WHERE entryid=$3 RETURNING *`;
+            const entryUpdates = [
+                title,
+                description,
+                entryId
+            ]
+
+            const updatedEntry = await pool.query(updateEntry, entryUpdates)
+
+            return res.status(200).send({
+                status: 200,
+                data: updatedEntry.rows
+            })
+        }
+        catch (error) {
+            return res.status(400).json({
+                status: 400,
+                error: error.message
+            });
+        }
+    }
 
     static deleteEntry = (req, res) => {}
 
