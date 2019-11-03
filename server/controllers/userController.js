@@ -26,7 +26,7 @@ class UserController {
 
             password = encryptPassword(password);
 
-            const createUser = `INSERT INTO mydiaryUsers(firstName, lastName, email, password) VALUES ($1,$2,$3,$4) returning *`
+            const createUser = `INSERT INTO mydiaryUsers(firstName, lastName, email, password) VALUES ($1,$2,$3,$4) RETURNING *`
             const values = [
                 firstName,
                 lastName,
