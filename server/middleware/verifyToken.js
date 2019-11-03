@@ -1,11 +1,15 @@
 import {
     returnUserId
 } from "../helpers/generateToken";
-import {
-    users
-} from "../controllers/userController"
+import { Pool } from 'pg';
+import dotenv from "dotenv";
+dotenv.config();
 
-const veriftyToken = (req, res, next) => {
+const pool = new Pool({
+    connectionString: process.env.dbURL
+})
+
+const veriftyToken = async (req, res, next) => {
     try {
         const authorizationHeader = req.header('authorization');
         if (!authorizationHeader) {
@@ -17,8 +21,10 @@ const veriftyToken = (req, res, next) => {
 
 
         const result = returnUserId(authorizationHeader);
-        const authUser = users.find(user => user.id === result);
-        if (!authUser) {
+        const authUser = `SELECT * FROM mydiaryUsers WHERE id = $1`;
+        const { rows } = await pool.query(authUser, [result]);
+
+        if (!rows[0]) {
             return res.status(401).send({
                 status: 401,
                 error: "not authorized to do the task"
