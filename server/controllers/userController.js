@@ -1,4 +1,5 @@
-import User from "../model/user";
+import { Pool } from 'pg'
+
 import {
     generateToken
 } from "../helpers/generateToken";
@@ -7,33 +8,37 @@ import {
     encryptPassword,
     decryptPassword
 } from "../helpers/securePwd";
+// import DBTransaction from "../config/connect_db"
 
-export const users = [];
+
+const pool = new Pool({
+    connectionString: process.env.dbURL
+})
 
 class UserController {
-    static signUp = (req, res) => {
+    static signUp = async (req, res) => {
+        // DBTransaction.db_connect();
         try {
-            const id = users.length + 1;
             let {
                 firstName,
                 lastName,
                 email,
                 password
             } = req.body;
-
-            const usedEmail = users.find((user) => user.email === email);
-            if (usedEmail) {
-                return res.status(409).json({
-                    status: 409,
-                    error: `${email} is already in use`
-                });
-            }
+            
             password = encryptPassword(password);
 
-            const saveUser = new User(id, firstName, lastName, email, password);
-            users.push(saveUser);
+            const createUser = `INSERT INTO mydiaryUsers(firstName, lastName, email, password) VALUES ($1,$2,$3,$4) returning *`
+            const values = [
+                firstName,
+                lastName,
+                email,
+                password
+            ]
+            
+            const { rows } = await pool.query(createUser, values);
 
-            const userToken = generateToken(id, email);
+            const userToken = generateToken(rows[0].id, rows[0].email);
 
             return res.status(201).json({
                 status: 201,
@@ -42,43 +47,15 @@ class UserController {
             })
         }
         catch (error) {
-            return res.status(500).json({
-                status: 500,
-                error: error.message
-            })
-        }
-        
-    }
-
-    static signIn = (req, res) => {
-        try {
-            let {
-                email,
-                password
-            } = req.body;
-
-            const registeredUser = users.find((user) => user.email === email);
-
-            if (registeredUser && (decryptPassword(password, registeredUser.password))) {
-                const userToken = generateToken(registeredUser.id, email);
-                return res.status(201).json({
-                    status: 201,
-                    token: userToken
-                });
-            } else {
-                return res.status(409).json({
-                    status: 409,
-                    error: `${email} or password is incorrect`
-                });
+            if(error.routine === '_bt_check_unique'){
+                return res.status(409).send({'status': 409, 'error': 'User with this email already exists' })
             }
+            return res.status(500).send(error.message);
         }
-        catch (error) {
-            return res.status(500).json({
-                status: 500,
-                error: error.message
-            })
-        }
+
     }
+
+    static signIn = (req, res) => {}
 }
 
 export default UserController;

@@ -1,8 +1,14 @@
 language: node_js
 node_js:
    "10"
-before_script:
+install:
   - npm install
+services:
+  - postgresql
+before_script:
+  - psql -c 'CREATE DATABASE mydiarydb;' -U postgres
+notification:
+  email: false;
 script:
   - npm test
 after_script:
