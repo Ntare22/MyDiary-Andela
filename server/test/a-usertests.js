@@ -83,18 +83,3 @@ describe('1 . POST signup ', () => {
             })
     })
 })
-
-
-describe('2. POST signin ', () => {
-    it("should return user logged in successfully", (done) => {
-        chai.request(index)
-            .post('/api/v1/auth/signin')
-            .send(signInData)
-            .end((err, res) => {
-                expect(res.body).to.be.an('object');
-                expect(res.status).to.equal(201);
-                expect(res.body.status).to.equal(201);
-                done();
-            })
-    })
-})
