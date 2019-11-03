@@ -8,7 +8,6 @@ import {
     encryptPassword,
     decryptPassword
 } from "../helpers/securePwd";
-// import DBTransaction from "../config/connect_db"
 
 
 const pool = new Pool({
@@ -17,7 +16,6 @@ const pool = new Pool({
 
 class UserController {
     static signUp = async (req, res) => {
-        // DBTransaction.db_connect();
         try {
             let {
                 firstName,
