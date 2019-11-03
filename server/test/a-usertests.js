@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 describe('1 . POST signup ', () => {
     it("should return first name is required", (done) => {
         chai.request(index)
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
@@ -25,7 +25,7 @@ describe('1 . POST signup ', () => {
 
     it("should return last name is required", (done) => {
         chai.request(index)
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
@@ -37,7 +37,7 @@ describe('1 . POST signup ', () => {
 
     it("should return email is required", (done) => {
         chai.request(index)
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
@@ -49,7 +49,7 @@ describe('1 . POST signup ', () => {
 
     it("should return password is required", (done) => {
         chai.request(index)
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(userData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
@@ -61,7 +61,7 @@ describe('1 . POST signup ', () => {
 
     it("should return user created successfully", (done) => {
         chai.request(index)
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(signUpData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
@@ -73,7 +73,7 @@ describe('1 . POST signup ', () => {
 
     it("should return user's email in use", (done) => {
         chai.request(index)
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(signUpData)
             .end((err, res) => {
                 expect(res.body).to.be.an('object');

@@ -5,8 +5,8 @@ import entryRouter from "./routes/entryRoutes";
 
 const app = express();
 app.use(bodyParser.json());
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1', entryRouter);
+app.use('/api/v2/auth', authRouter);
+app.use('/api/v2', entryRouter);
 
 
 app.get('/',(req, res) => res.send("Welcome to MyDiary!!"));
