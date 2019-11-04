@@ -182,4 +182,20 @@ describe('GET entries ,/api/v2/entries', () => {
         console.log(err);
       });
   });
+
+  it('should return error 400 ', (done) => {
+    chai.request(index)
+      .get('/api/v2/entries/go')
+      .set('authorization', userToken)
+      .set('Accept', 'application/json')
+      .then((res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 })
