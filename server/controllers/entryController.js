@@ -142,6 +142,8 @@ class EntryController {
         }
     }
 
-    static viewEntry = (req, res) => {}
+    static viewEntry = (req, res) => {
+        
+    }
 }
 export default EntryController;
