@@ -114,3 +114,53 @@ describe('POST entries ,/api/v2/entries', () => {
   });
 
 })
+
+describe('PATCH entries ,/api/v2/entries/:entryId', () => {
+  it('should return entryId is invalid ', (done) => {
+    chai.request(index)
+      .patch('/api/v2/entries/1')
+      .set('authorization', userToken)
+      .set('Accept', 'application/json')
+      .send(entryData[5])
+      .then((res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(200);
+        expect(res.body.status).to.equal(200);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  it('should return entryId is invalid ', (done) => {
+    chai.request(index)
+      .patch('/api/v2/entries/100')
+      .set('authorization', userToken)
+      .then((res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+})
+
+describe('DELETE entries ,/api/v1/entries/:entryId', () => {
+  it('should return entryId has been deleted ', (done) => {
+    chai.request(index)
+      .delete('/api/v2/entries/1')
+      .set('authorization', userToken)
+      .then((res) => {
+        expect(res.status).to.equal(204);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+})
