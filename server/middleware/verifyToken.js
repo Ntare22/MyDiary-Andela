@@ -9,7 +9,7 @@ const pool = new Pool({
     connectionString: process.env.dbURL
 })
 
-const veriftyToken = async (req, res, next) => {
+const verifyToken = async (req, res, next) => {
     try {
         const authorizationHeader = req.header('authorization');
         if (!authorizationHeader) {
@@ -40,4 +40,4 @@ const veriftyToken = async (req, res, next) => {
     }
 }
 
-export default veriftyToken;
+export default verifyToken;
