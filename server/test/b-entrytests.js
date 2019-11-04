@@ -150,7 +150,7 @@ describe('PATCH entries ,/api/v2/entries/:entryId', () => {
 
 })
 
-describe('DELETE entries ,/api/v1/entries/:entryId', () => {
+describe('DELETE entries ,/api/v2/entries/:entryId', () => {
   it('should return entryId has been deleted ', (done) => {
     chai.request(index)
       .delete('/api/v2/entries/1')

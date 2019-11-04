@@ -63,7 +63,7 @@ class EntryController {
             if (!rows[0]) {
                 return res.status(400).send({
                     status: 400,
-                    error: 'Entry entered is invalid'
+                    error: 'Entry entered does not exist'
                 });
             }
 
