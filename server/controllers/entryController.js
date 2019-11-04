@@ -122,7 +122,25 @@ class EntryController {
         
     }
 
-    static viewEntries = (req, res) => {}
+    static viewEntries = async (req, res) => {
+        try {
+            const viewUser = returnUserId(req.header('authorization'));
+        
+            const getEntries = `SELECT * FROM mydiaryentries WHERE userid=$1;`;
+            const { rows } = await pool.query(getEntries, [viewUser]);
+
+            return res.status(200).json({
+                status: 200,
+                data: rows
+            })
+        }
+        catch (error) {
+            return res.status(500).json({
+                status: 500,
+                error: error.message
+            });
+        }
+    }
 
     static viewEntry = (req, res) => {}
 }
