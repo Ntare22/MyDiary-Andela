@@ -8,6 +8,7 @@ import {
 const {
   expect
 } = chai;
+
 chai.use(chaiHttp);
 
 let userToken;
