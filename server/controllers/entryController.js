@@ -63,7 +63,7 @@ class EntryController {
             if (!rows[0]) {
                 return res.status(400).send({
                     status: 400,
-                    error: 'Entry entered is invalid'
+                    error: 'Entry entered does not exist'
                 });
             }
 
@@ -89,7 +89,38 @@ class EntryController {
         }
     }
 
-    static deleteEntry = (req, res) => {}
+    static deleteEntry = async (req, res) => {
+        try {
+            let {
+                entryId
+            } = req.params
+
+            const findEntryId = `SELECT * FROM mydiaryEntries WHERE entryid = $1`;
+            const { rows } = await pool.query(findEntryId, [entryId]);
+
+            if (!rows[0]) {
+                return res.status(400).send({
+                    status: 400,
+                    error: 'Entry entered is invalid'
+                });
+            }
+            const deleteQuery = `DELETE FROM mydiaryEntries WHERE entryid = $1 RETURNING *`;
+
+            const removeEntry = await pool.query(deleteQuery, [entryId]);
+            
+            return res.status(204).json({
+                status: 204,
+                data: removeEntry.rows
+            })
+        }
+        catch (error) {
+            return res.status(500).json({
+                status: 500,
+                error: error.message
+            });
+        }
+        
+    }
 
     static viewEntries = (req, res) => {}
 
