@@ -1,18 +1,12 @@
-import { Pool } from 'pg'
-
+import { pool } from '../config/connect_db';
 import {
     generateToken
 } from "../helpers/generateToken";
-
 import {
     encryptPassword,
     decryptPassword
 } from "../helpers/securePwd";
-
-
-const pool = new Pool({
-    connectionString: process.env.dbURL
-})
+import uuid from 'uuid';
 
 class UserController {
     static signUp = async (req, res) => {
@@ -24,10 +18,12 @@ class UserController {
                 password
             } = req.body;
 
+            const id = uuid.v1();
             password = encryptPassword(password);
 
-            const createUser = `INSERT INTO mydiaryUsers(firstName, lastName, email, password) VALUES ($1,$2,$3,$4) RETURNING *`
+            const createUser = `INSERT INTO mydiaryUsers(id, firstName, lastName, email, password) VALUES ($1,$2,$3,$4,$5) RETURNING *`
             const values = [
+                id,
                 firstName,
                 lastName,
                 email,

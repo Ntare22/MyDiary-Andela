@@ -1,11 +1,8 @@
-import { Pool } from 'pg';
+import { pool } from '../config/connect_db';
 import {
     returnUserId
 } from "../helpers/generateToken";
 
-const pool = new Pool({
-    connectionString: process.env.dbURL
-})
 
 class EntryController {
     static createEntry = async (req, res) => {
