@@ -1,13 +1,7 @@
 import {
     returnUserId
 } from "../helpers/generateToken";
-import { Pool } from 'pg';
-import dotenv from "dotenv";
-dotenv.config();
-
-const pool = new Pool({
-    connectionString: process.env.dbURL
-})
+import { pool } from '../config/connect_db';
 
 const verifyToken = async (req, res, next) => {
     try {
@@ -20,9 +14,9 @@ const verifyToken = async (req, res, next) => {
         }
 
 
-        const result = returnUserId(authorizationHeader);
+        const ourUser = returnUserId(authorizationHeader);
         const authUser = `SELECT * FROM mydiaryUsers WHERE id = $1`;
-        const { rows } = await pool.query(authUser, [result]);
+        const { rows } = await pool.query(authUser, [ourUser]);
 
         if (!rows[0]) {
             return res.status(401).send({

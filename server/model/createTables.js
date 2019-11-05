@@ -1,15 +1,9 @@
-import { Pool } from 'pg';
-import dotenv from 'dotenv';
+import { pool } from '../config/connect_db';
 
-dotenv.config();
-
-const pool = new Pool({
-  connectionString: process.env.dbURL
-})
-
-const createTable = pool.query(`DROP TABLE IF EXISTS mydiaryusers CASCADE;
+const createTable = pool.query(`
+DROP TABLE IF EXISTS mydiaryusers CASCADE;
 CREATE TABLE mydiaryUsers(
-  id SERIAL PRIMARY KEY NOT NULL,
+  id VARCHAR PRIMARY KEY NOT NULL,
   firstName VARCHAR NOT NULL,
   lastName VARCHAR NOT NULL,
   email VARCHAR UNIQUE NOT NULL,
@@ -18,7 +12,7 @@ CREATE TABLE mydiaryUsers(
 DROP TABLE IF EXISTS mydiaryEntries CASCADE;
 CREATE TABLE mydiaryEntries(
   entryid SERIAL PRIMARY KEY NOT NULL,
-  userid INTEGER NOT NULL,
+  userid VARCHAR NOT NULL,
   title VARCHAR NOT NULL,
   description VARCHAR NOT NULL,
   datecreated VARCHAR NOT NULL
