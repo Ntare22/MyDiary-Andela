@@ -199,3 +199,37 @@ describe('GET entries ,/api/v2/entries', () => {
       });
   });
 })
+
+describe('GET entries ,/api/v2/entries/:entryId', () => {
+  it('should return a single entry ', (done) => {
+    chai.request(index)
+      .get(`/api/v2/entries/1`)
+      .set('authorization', userToken)
+      .set('Accept', 'application/json')
+      .then((res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(200);
+        expect(res.body.status).to.equal(200);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  it('should not allow user to pass in which is not a number', (done) => {
+    chai.request(index)
+      .get(`/api/v2/entries/1ojois`)
+      .set('authorization', userToken)
+      .set('Accept', 'application/json')
+      .then((res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+})
