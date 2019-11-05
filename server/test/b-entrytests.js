@@ -117,7 +117,7 @@ describe('POST entries ,/api/v2/entries', () => {
 })
 
 describe('PATCH entries ,/api/v2/entries/:entryId', () => {
-  it('should return entryId is invalid ', (done) => {
+  it('should return entry has been update ', (done) => {
     chai.request(index)
       .patch('/api/v2/entries/1')
       .set('authorization', userToken)
@@ -164,6 +164,31 @@ describe('DELETE entries ,/api/v2/entries/:entryId', () => {
         console.log(err);
       });
   });
+
+  it('should return entryId is invalid ', (done) => {
+    chai.request(index)
+      .delete('/api/v2/entries/10')
+      .set('authorization', userToken)
+      .then((res) => {
+        expect(res.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  it('should return entryId is invalid ', (done) => {
+    chai.request(index)
+      .delete('/api/v2/entries/1')
+      .then((res) => {
+        expect(res.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 })
 
 describe('GET entries ,/api/v2/entries', () => {
@@ -203,7 +228,7 @@ describe('GET entries ,/api/v2/entries', () => {
 describe('GET entries ,/api/v2/entries/:entryId', () => {
   it('should return a single entry ', (done) => {
     chai.request(index)
-      .get(`/api/v2/entries/1`)
+      .get(`/api/v2/entries/${1}`)
       .set('authorization', userToken)
       .set('Accept', 'application/json')
       .then((res) => {

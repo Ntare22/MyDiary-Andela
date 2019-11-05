@@ -152,19 +152,18 @@ class EntryController {
 
             const getEntriesQuery = `SELECT * FROM mydiaryentries WHERE entryid=$1 AND userid=$2;`;
             const getUserEntries = await pool.query(getEntriesQuery, values);
-            // return console.log(getUserEntries.rows[0].entryid);
 
-            if (!getUserEntries.rows[0]) {
-                return res.status(400).send({
-                    status: 400,
-                    error: 'Entry entered is not available'
-                });
+            if (getUserEntries.rows) {
+                return res.status(200).json({
+                    status: 200,
+                    data: getUserEntries.rows
+                })
             }
-
-            return res.status(200).json({
-                status: 200,
-                data: getUserEntries.rows
-            })
+            return res.status(404).send({
+                status: 404,
+                error: 'Entry entered is not available'
+            });
+           
         }
         catch (error) {
             return res.status(500).json({

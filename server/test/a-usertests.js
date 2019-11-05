@@ -88,11 +88,35 @@ describe('2. POST signin ', () => {
     it("should return user logged in successfully", (done) => {
         chai.request(index)
             .post('/api/v2/auth/signin')
-            .send(signInData)
+            .send(signInData[0])
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(200);
                 expect(res.body.status).to.equal(200);
+                done();
+            })
+    })
+
+    it("should return email is incorrect", (done) => {
+        chai.request(index)
+            .post('/api/v2/auth/signin')
+            .send(signInData[1])
+            .end((err, res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.status).to.equal(401);
+                expect(res.body.status).to.equal(401);
+                done();
+            })
+    })
+
+    it("should return password is incorrect", (done) => {
+        chai.request(index)
+            .post('/api/v2/auth/signin')
+            .send(signInData[2])
+            .end((err, res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.status).to.equal(401);
+                expect(res.body.status).to.equal(401);
                 done();
             })
     })
