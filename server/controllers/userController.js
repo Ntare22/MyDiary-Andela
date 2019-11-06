@@ -19,7 +19,7 @@ class UserController {
             } = req.body;
 
             const id = uuid.v1();
-            password = encryptPassword(password);
+            const userPassword = encryptPassword(password);
 
             const createUser = `INSERT INTO mydiaryUsers(id, firstName, lastName, email, password) VALUES ($1,$2,$3,$4,$5) RETURNING *`
             const values = [
@@ -27,7 +27,7 @@ class UserController {
                 firstName,
                 lastName,
                 email,
-                password
+                userPassword
             ]
 
             const { rows } = await pool.query(createUser, values);
@@ -56,14 +56,15 @@ class UserController {
             const findUser = `SELECT * from mydiaryusers where email = $1;`
 
             const { rows } = await pool.query(findUser, [email]);
-            
-            if (!rows.length || decryptPassword(rows[0].password, password)) {
-                return res.status(401).json({ status: 401, error: 'incorrect email or password'})
-            }
 
-            const userToken = generateToken(rows[0].id, rows[0].email)
-            
-            return res.status(200).json({ status: 200, message: 'user logged in successfully', token: userToken });
+            if (!rows.length) {
+                return res.status(401).json({ status: 401, error: 'incorrent email' })
+            }
+            if (decryptPassword(password, rows[0].password)) {
+                const userToken = generateToken(rows[0].id, rows[0].email)
+                return res.status(200).json({ status: 200, message: 'user logged in successfully', token: userToken });
+            }
+            return res.status(401).json({ status: 401, error: 'incorrect password' })
         }
         catch (error) {
             return res.status(500).send(error.message);

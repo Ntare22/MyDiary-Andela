@@ -139,8 +139,39 @@ class EntryController {
         }
     }
 
-    static viewEntry = (req, res) => {
-        
+    static viewEntry = async (req, res) => {
+        try {
+            let {
+                entryId
+            } = req.params
+            
+            const parsedEntryId = parseInt(entryId);
+            const retrieveUserId = returnUserId(req.header('authorization'));
+
+            const values = [ parsedEntryId, retrieveUserId ]
+
+            const getEntriesQuery = `SELECT * FROM mydiaryentries WHERE entryid=$1 AND userid=$2;`;
+            const getUserEntries = await pool.query(getEntriesQuery, values);
+
+            if (getUserEntries.rows) {
+                return res.status(200).json({
+                    status: 200,
+                    data: getUserEntries.rows
+                })
+            }
+            return res.status(404).send({
+                status: 404,
+                error: 'Entry entered is not available'
+            });
+           
+        }
+        catch (error) {
+            return res.status(500).json({
+                status: 500,
+                error: error.message
+            });
+        }
+
     }
 }
 export default EntryController;
