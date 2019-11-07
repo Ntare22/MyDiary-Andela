@@ -29,6 +29,7 @@ const deleteEntry = () => {
 }
 
 
+
 /* When user clicks on X or Save button */
 closeBtn.onclick = () => myPopup.style.display = "none";
 
