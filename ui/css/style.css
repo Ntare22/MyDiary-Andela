@@ -243,10 +243,11 @@ aside p a:hover {
     width: 80%;
     margin: auto;
     overflow: hidden;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 80px;
     border-radius: 10px;
-    position: static;
+    position: fixed;
+    margin-left: 10%;
     height: 80vh;
 }
 
@@ -350,6 +351,11 @@ aside p a:hover {
 .btn img {
     width: 20px;
     height: 20px;
+}
+
+.btn img:hover {
+    width: 25px;
+    height: 25px;
 }
 
 #account-btn {
@@ -609,11 +615,6 @@ footer {
         width: 20px !important;
     }
 
-    .btn img {
-        width: 20px;
-        height: 20px;
-    }
-
     .item div,
     .checkbox {
         float: right;
@@ -712,8 +713,15 @@ footer {
     display: none;
     position: absolute;
     background-color: #020024;
-    padding: 40em 30em;
+    padding: 24em 30em;
     z-index: 1;
+    }
+
+    #hamburger-btn input:checked ~ .hamburger-dropdown {
+    display: block;
+    top: 112%;
+    width: 100%;
+    right: -105px;
     }
 
     /* Account Settings Page */
@@ -736,6 +744,15 @@ footer {
         margin-top: -2%;
         font-size: 1em;
     }
+
+    .thoughts-wrap {
+    margin-top: 8%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    position: fixed;
+    margin-left: 10%;
+    height: 80vh;
+    }
 }
 
 @media(max-width: 800px) {
@@ -756,14 +773,15 @@ footer {
     display: block;
     top: 112%;
     width: 100%;
-    right: -95px;
+    right: -98px;
     }
 
     .thoughts-wrap {
     margin-top: 10%;
     margin-bottom: 80px;
     border-radius: 10px;
-    position: static;
+    position: fixed;
+    margin-left: 10%;
     height: 80vh;
     }
 
@@ -801,7 +819,7 @@ footer {
     margin-top: 15%;
     margin-bottom: 80px;
     border-radius: 10px;
-    position: static;
+    position: fixed;
     height: 80vh;
     }
 
@@ -852,10 +870,10 @@ footer {
     }
 
     .thoughts-wrap {
-    margin-top: 20%;
+    margin-top: 17%;
     margin-bottom: 80px;
     border-radius: 10px;
-    position: static;
+    position: fixed;
     height: 80vh;
     }
 
@@ -878,16 +896,16 @@ footer {
     display: none;
     position: absolute;
     background-color: #020024;
-    padding: 12em 13em;
+    padding: 12em 15em;
     z-index: 1;
     }
 
     .thoughts-wrap {
-    margin-top: 25%;
+    margin-top: 20%;
     margin-bottom: 80px;
     border-radius: 10px;
-    position: static;
-    height: 80vh;
+    position: fixed;
+    height: 75vh;
     }
 
     .item div,
