@@ -126,6 +126,12 @@ class EntryController {
             const getEntries = `SELECT * FROM mydiaryentries WHERE userid=$1;`;
             const { rows } = await pool.query(getEntries, [viewUser]);
 
+            if (!rows[0]) {
+                return res.status(404).send({
+                    status: 404,
+                    error: 'You have no entries'
+                });
+            } 
             return res.status(200).json({
                 status: 200,
                 data: rows

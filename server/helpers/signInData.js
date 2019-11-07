@@ -8,5 +8,9 @@ export const signInData = [
   }, {
     email: "jim@gmail.com",
     password: "ntare2345"
+  },
+  {
+    email: "jim@gmail.com",
+    password: ""
   }
 ]

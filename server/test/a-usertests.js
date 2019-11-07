@@ -97,7 +97,7 @@ describe('2. POST signin ', () => {
             })
     })
 
-    it("should return email is incorrect", (done) => {
+    it("should return email or password is incorrect", (done) => {
         chai.request(index)
             .post('/api/v2/auth/signin')
             .send(signInData[1])
@@ -109,10 +109,22 @@ describe('2. POST signin ', () => {
             })
     })
 
-    it("should return password is incorrect", (done) => {
+    it("should return email or password is incorrect", (done) => {
         chai.request(index)
             .post('/api/v2/auth/signin')
             .send(signInData[2])
+            .end((err, res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.status).to.equal(401);
+                expect(res.body.status).to.equal(401);
+                done();
+            })
+    })
+
+    it("should return email or password is incorrect", (done) => {
+        chai.request(index)
+            .post('/api/v2/auth/signin')
+            .send(signInData[3])
             .end((err, res) => {
                 expect(res.body).to.be.an('object');
                 expect(res.status).to.equal(401);
