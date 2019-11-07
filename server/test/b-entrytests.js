@@ -151,46 +151,6 @@ describe('PATCH entries ,/api/v2/entries/:entryId', () => {
 
 })
 
-describe('DELETE entries ,/api/v2/entries/:entryId', () => {
-  it('should return entryId has been deleted ', (done) => {
-    chai.request(index)
-      .delete('/api/v2/entries/1')
-      .set('authorization', userToken)
-      .then((res) => {
-        expect(res.status).to.equal(204);
-        done();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-
-  it('should return entryId is invalid ', (done) => {
-    chai.request(index)
-      .delete('/api/v2/entries/10')
-      .set('authorization', userToken)
-      .then((res) => {
-        expect(res.status).to.equal(400);
-        done();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-
-  it('should return entryId is invalid ', (done) => {
-    chai.request(index)
-      .delete('/api/v2/entries/1')
-      .then((res) => {
-        expect(res.status).to.equal(400);
-        done();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-})
-
 describe('GET entries ,/api/v2/entries', () => {
   it('should return all entries ', (done) => {
     chai.request(index)
@@ -258,3 +218,44 @@ describe('GET entries ,/api/v2/entries/:entryId', () => {
       });
   });
 })
+
+describe('DELETE entries ,/api/v2/entries/:entryId', () => {
+  it('should return entryId has been deleted ', (done) => {
+    chai.request(index)
+      .delete('/api/v2/entries/1')
+      .set('authorization', userToken)
+      .then((res) => {
+        expect(res.status).to.equal(204);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  it('should return entryId is invalid ', (done) => {
+    chai.request(index)
+      .delete('/api/v2/entries/10')
+      .set('authorization', userToken)
+      .then((res) => {
+        expect(res.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  it('should return entryId is invalid ', (done) => {
+    chai.request(index)
+      .delete('/api/v2/entries/1')
+      .then((res) => {
+        expect(res.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+})
+
