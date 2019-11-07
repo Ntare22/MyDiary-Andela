@@ -237,6 +237,37 @@ aside p a:hover {
     margin-top: 40%;
 }
 
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: none;
+  padding: 20px;
+  position: absolute;
+  margin-left: -20%;
+  margin-top: 80%
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
 /* Thoughts page */
 
 .thoughts-wrap {
@@ -724,6 +755,15 @@ footer {
     right: -105px;
     }
 
+    i {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 20px;
+        position: absolute;
+        margin-left: -20%;
+        margin-top: 60%
+    }
     /* Account Settings Page */
 
     #account {
@@ -791,6 +831,16 @@ footer {
         margin-right: 3%;
         margin-top: 2%;
         position: relative;
+    }
+
+    i {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 20px;
+        position: absolute;
+        margin-left: -20%;
+        margin-top: 80%
     }
 }
 
@@ -884,6 +934,17 @@ footer {
         margin-top: 4%;
         position: relative;
     }
+
+    i {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 20px;
+        position: absolute;
+        margin-left: -20%;
+        margin-top: 130%
+    }
+
 }
 
 @media(max-width: 370px) {
