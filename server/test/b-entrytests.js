@@ -149,6 +149,36 @@ describe('PATCH entries ,/api/v2/entries/:entryId', () => {
       });
   });
 
+  it('should return token is unavailable ', (done) => {
+    chai.request(index)
+      .patch('/api/v2/entries/wsoiwe')
+      .set('authorization', 'invalid')
+      .then((res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  it('should return no values provided to update ', (done) => {
+    chai.request(index)
+      .patch('/api/v2/entries/1')
+      .set('authorization', userToken)
+      .then((res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.status).to.equal(400);
+        done();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
 })
 
 describe('GET entries ,/api/v2/entries', () => {
